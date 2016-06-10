@@ -29,7 +29,7 @@
     </div>
 
     <div class='item-container'>
-      <div class='item-container-header'>Customizability</div>
+      <div class='item-container-header'>Color</div>
       <div class='item-container-content'>
         <label class='item'>
           Background Color
@@ -38,6 +38,15 @@
       </div>
       <div class='item-container-footer'>
         Choose the app's background color. Note: Only available on Basalt and Chalk watches that support many colors.
+      </div>
+    </div>
+    
+    <div class='item-container'>
+      <div class='item-container-content'>
+        <div class='item tab-buttons'>
+          <a id='tab-unit' name='temp_unit' class='tab-button active'>Celcius</a>
+          <a id='tab-unit' name='temp_unit' class='tab-button'>Fahrenheit</a>
+        </div>
       </div>
     </div>
 
@@ -50,9 +59,11 @@
   <script>
   function getConfigData() {
     var backgroundColorPicker = document.getElementById('background_color_picker');
+    var temperatureUnit = document.getElementById('tab-unit').className += ' active';
      
     var options = {
-      'background_color': backgroundColorPicker.value
+      'background_color': backgroundColorPicker.value,
+      'temp_unit': temperatureUnit.value
     };
 
     // Save for next launch
@@ -85,7 +96,7 @@
 
   (function() {
     var backgroundColorPicker = document.getElementById('background_color_picker');
-    
+    var temperatureUnit = document.getElementById('tab-unit').className += ' active';
     // Load any previously saved configuration, if available
     if(localStorage['background_color']) {
       backgroundColorPicker.value = localStorage['background_color'];
