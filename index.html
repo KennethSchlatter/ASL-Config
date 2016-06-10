@@ -44,8 +44,8 @@
     <div class='item-container'>
       <div class='item-container-content'>
         <div class='item tab-buttons'>
-          <a id='tab-unit' name='temp_unit' class='tab-button active'>Celcius</a>
-          <a id='tab-unit' name='temp_unit' class='tab-button'>Fahrenheit</a>
+          <a name='temp_unit' class='tab-button active'>Celcius</a>
+          <a name='temp_unit' class='tab-button'>Fahrenheit</a>
         </div>
       </div>
     </div>
@@ -59,7 +59,7 @@
   <script>
   function getConfigData() {
     var backgroundColorPicker = document.getElementById('background_color_picker');
-    var temperatureUnit = document.getElementById('tab-unit').className += ' active';
+    var temperatureUnit = document.getElementByName('temp_unit');
      
     var options = {
       'background_color': backgroundColorPicker.value,
@@ -96,7 +96,7 @@
 
   (function() {
     var backgroundColorPicker = document.getElementById('background_color_picker');
-    var temperatureUnit = document.getElementById('tab-unit').className += ' active';
+    var temperatureUnit = document.getElementByName('temp_unit');
     // Load any previously saved configuration, if available
     if(localStorage['background_color']) {
       backgroundColorPicker.value = localStorage['background_color'];
